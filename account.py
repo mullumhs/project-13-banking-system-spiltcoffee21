@@ -38,11 +38,17 @@ class Acc():
         if isinstance(balance,(int,float)):
             self._balance = balance
             
-    def deposit(self, balance):
+    def deposit(self, balance, dep_amm):
+        if dep_amm <= 0:            
+            raise ValueError("balance in the negative")
+        self._dep_amm += self._balance
     
-    
-    
-    def withdraw(self, balance):
+    def withdraw(self, balance, with_amm):
+        if with_amm <= 0:
+            raise ValueError("cannot with draw nothing or negative numbers")
+        else:
+            self._with_amm -= self._balance
+            print (f"withdrew {with_amm} successfully")
         
 
              
